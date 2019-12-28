@@ -1,88 +1,36 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin   = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
 module.exports = {
-    entry: './src/index',
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[chunkhash].js'
+    entry: {
+        'bootstrap-social': './src/scss/bootstrap-social.scss',
     },
 
     module: {
         rules: [
             {
-                test: [/.js$|.ts$/],
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/typescript'
-                        ]
-                    }
-                }
-            },
-            {
                 test: [/.css$|.scss$/],
                 use:[
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',
-                    'postcss-loader'
-                ]
-            }, 
-            {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
-                use: [
+                    MiniCssExtractPlugin.loader,    // Extract syles into external file
+                    'css-loader',                   // Translates CSS into CommonJS
                     {
-                        loader: 'file-loader',
+                        loader: 'sass-loader',      // Compiles Sass to CSS
                         options: {
-                            name: '[name].[ext]',
-                            outputPath: 'assets/images/'
-                        }
-                    }
+                            implementation: require('node-sass'),     // Prefer `node-sass`
+                        },
+                    },
+                    'postcss-loader'                // Transform CSS using plugins
                 ]
-            }
+            },
         ]
     },
 
-    resolve: {
-        alias: {
-            '@scss': path.resolve(__dirname, '../src/styles/scss'),
-            '@img': path.resolve(__dirname, '../src/assets/images'),
-            '@': path.resolve(__dirname, '../src')
-        },
-        modules: [
-            'node_modules',
-            path.resolve(__dirname, 'src')
-        ],
-        extensions: ['.js', '.ts']
-    },
-
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Bootstrap Social Buttons',
-            template: './src/index.html',
-            inject: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true
-            }
-        }),
+        new FixStyleOnlyEntriesPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'style.[chunkhash].css'
+            filename: process.env.NODE_ENV === 'development' ? '[name].css' : '[name].min.css'
         }),
-        new CopyWebpackPlugin([{
-            from:'./src/assets/images',
-            to:'assets/images'
-        }]),
-        new CleanWebpackPlugin(['dist'], {
-            root: path.join(__dirname, '..')
-          })
+        new CleanWebpackPlugin()
     ]
 }
-
