@@ -17,7 +17,7 @@ $(function () {
         return;
     }
 
-    let icon = "<i class='fa fa-" + iconName + "'></i>";
+    let icon = "<i class='fab fa-" + iconName + "'></i>";
 
     let targetName = $target.data('name');
     if ( ! targetName ) {
