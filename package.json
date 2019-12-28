@@ -1,13 +1,48 @@
 {
   "name": "bootstrap-social",
-  "version": "5.1.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lipis/bootstrap-social.git"
-  },
+  "version": "0.1.0",
+  "repository": "https://github.com/obokaiwele/bootstrap-social.git",
   "license": "MIT",
+  "keywords": [
+    "bootstrap",
+    "bootstrap4",
+    "button",
+    "social"
+  ],
+  "bugs": {
+    "url": "https://github.com/obokaiwele/bootstrap-social/issues"
+  },
+  "homepage": "https://github.com/obokaiwele/bootstrap-social#readme",
   "dependencies": {
-    "bootstrap": "~3",
-    "font-awesome": "~4.7"
+    "bootstrap": "^4.4.1",
+    "brand-colors": "^2.1.1"
+  },
+  "description": "Bootstrap 4 Social Buttons",
+  "main": "index.js",
+  "author": "Obe Okaiwele <https://github.com/obokaiwele>",
+  "devDependencies": {
+    "autoprefixer": "^9.7.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-fix-style-only-entries": "^0.4.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "webpack-dev-server --mode development"
   }
 }
