@@ -8,6 +8,14 @@
   background-color: #d87a68 !important;
   color: #fff !important; }
 
+.btn-amazon {
+  background-color: #ff9900 !important;
+  color: #fff !important; }
+
+.btn-apple {
+  background-color: #000 !important;
+  color: #fff !important; }
+
 .btn-bitbucket {
   background-color: #205081 !important;
   color: #fff !important; }
@@ -37,19 +45,19 @@
   color: #fff !important; }
 
 .btn-instagram {
-  background-color: #3f729b !important;
+  background-color: #26455d !important;
   color: #fff !important; }
 
 .btn-linkedin {
-  background-color: #007bb6 !important;
+  background-color: #0077b5 !important;
   color: #fff !important; }
 
 .btn-microsoft {
-  background-color: #2672ec !important;
+  background-color: #00a1f1 !important;
   color: #fff !important; }
 
 .btn-odnoklassniki {
-  background-color: #f4731c !important;
+  background-color: #ed812b !important;
   color: #fff !important; }
 
 .btn-openid {
@@ -57,23 +65,27 @@
   color: #fff !important; }
 
 .btn-pinterest {
-  background-color: #cb2027 !important;
+  background-color: #bd081c !important;
   color: #fff !important; }
 
 .btn-reddit {
-  background-color: #eff7ff !important;
-  color: #000 !important; }
+  background-color: #ff4500 !important;
+  color: #fff !important; }
 
 .btn-soundcloud {
-  background-color: #ff5500 !important;
+  background-color: #ff8800 !important;
+  color: #fff !important; }
+
+.btn-stack-exchange {
+  background-color: #4ca2da !important;
   color: #fff !important; }
 
 .btn-tumblr {
-  background-color: #2c4762 !important;
+  background-color: #35465c !important;
   color: #fff !important; }
 
 .btn-twitter {
-  background-color: #55acee !important;
+  background-color: #1da1f2 !important;
   color: #fff !important; }
 
 .btn-vimeo {
@@ -81,10 +93,10 @@
   color: #fff !important; }
 
 .btn-vk {
-  background-color: #587ea3 !important;
+  background-color: #45668e !important;
   color: #fff !important; }
 
 .btn-yahoo {
-  background-color: #720e9e !important;
+  background-color: #410093 !important;
   color: #fff !important; }
 
